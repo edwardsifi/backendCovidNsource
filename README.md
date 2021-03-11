@@ -26,7 +26,7 @@ tambien lo usan los servicios cloud en produccion.
 ## uso para desarrollo
 
 ```node
-import foobar
+
 
 npm i -> instala los paquetes
 npm run dev.
