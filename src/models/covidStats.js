@@ -3,7 +3,7 @@ import {Schema, model} from 'mongoose';
 const covidStatsSchema = new Schema({
     cases:{
         oneM_pop: String,
-        avtive: Number,
+        active: Number,
         critical: Number,
         new: String,
         recovered: Number,

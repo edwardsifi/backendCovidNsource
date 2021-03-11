@@ -46,16 +46,41 @@ export const createSync = async (req, res) => {
 
     }
 
-    cStats.insertMany(newstats, function(err, docs){
-        if(err){
-            console.log(err)
-        }
-            console.log(docs.length)
-            res.status(200).json(docs);
-    })
-   
-   const cantidad = cStats.find();
-   console.log(cantidad.length);
-}
 
+    cStats.find({}, function (err, docs) {
+        if (docs.length > 0) {
+
+            cStats.remove({}, function(err, docs){
+
+
+               if(err){
+                   console.log(err);
+               }
+
+               cStats.insertMany(newstats, function (err, docs) {
+                if (err) {
+                    console.log(err)
+                }
+                console.log(docs.length, " datos actualizados")
+                res.status(200).json(docs);
+                })
+
+
+
+            });
+            console.log(docs.length, "cantidad de documentos actuales")
+
+        } else {
+            console.log("no hay estadisticas se insertaran")
+            cStats.insertMany(newstats, function (err, docs) {
+                if (err) {
+                    console.log(err)
+                }
+                console.log(docs.length, " datos insertados")
+                res.status(200).json(docs);
+            })
+        }
+    });
+
+}
 

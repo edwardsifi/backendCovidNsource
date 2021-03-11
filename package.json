@@ -9,7 +9,7 @@
     "postinstall": "babel src --out-dir build",
     "start": "node build/index.js"
   },
-  "author": "",
+  "author": "Eduardo Aristides Bogran Centeno",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.13.0",
